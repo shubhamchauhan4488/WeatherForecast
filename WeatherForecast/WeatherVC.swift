@@ -9,9 +9,10 @@
 import UIKit
 import Alamofire
 import CoreLocation
+import MapKit
 
 
-class WeatherVC: UIViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate{
+class WeatherVC: UIViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate, MKMapViewDelegate{
     
     var currentWeather : CurrentWeather!
     var forecast : Forecast!
@@ -43,19 +44,21 @@ class WeatherVC: UIViewController, UITableViewDataSource, UITableViewDelegate, C
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startMonitoringSignificantLocationChanges()
-        currentWeather =  CurrentWeather()
         
+         currentWeather =  CurrentWeather()
     }
     
     func locationAuthStatus(){
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse{
             currentLocation = locationManager.location
-            print(locationManager.location)
+            print(locationManager.location!)
             Location.sharedInstance.latitude = currentLocation.coordinate.latitude
             Location.sharedInstance.longitude = currentLocation.coordinate.longitude
             print(currentLocation.coordinate.latitude)
-            print(Location.sharedInstance.latitude)
-    
+            print(Location.sharedInstance.longitude)
+            CURRENT_WEATHER_URL = "https://api.openweathermap.org/data/2.5/weather?lat=\(Location.sharedInstance.latitude!)&lon=\(Location.sharedInstance.longitude!)&appid=42a1771a0b787bf12e734ada0cfc80cb"
+            print(CURRENT_WEATHER_URL)
+            print(FORECAST_URL)
             currentWeather.downloadWeatherDetails{
                 self.downloadForecastData {
                     self.updateMainUI()

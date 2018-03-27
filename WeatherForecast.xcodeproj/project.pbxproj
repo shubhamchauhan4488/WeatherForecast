@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3D218C4D6958E568DE5C05A3 /* Pods_WeatherForecast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44B0FE43FF5D307518D22F99 /* Pods_WeatherForecast.framework */; };
+		3D218C4D6958E568DE5C05A3 /* Pods_WeatherForecast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44B0FE43FF5D307518D22F99 /* Pods_WeatherForecast.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		8F1F4E22205673600044079F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1F4E21205673600044079F /* AppDelegate.swift */; };
 		8F1F4E24205673600044079F /* WeatherVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1F4E23205673600044079F /* WeatherVC.swift */; };
 		8F1F4E27205673600044079F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F1F4E25205673600044079F /* Main.storyboard */; };

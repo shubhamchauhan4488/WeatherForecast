@@ -41,6 +41,8 @@
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>App wants to access your location</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string></string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSExceptionDomains</key>
