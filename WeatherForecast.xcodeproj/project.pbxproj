@@ -13,8 +13,11 @@
 		8F1F4E27205673600044079F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F1F4E25205673600044079F /* Main.storyboard */; };
 		8F1F4E29205673600044079F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F1F4E28205673600044079F /* Assets.xcassets */; };
 		8F1F4E2C205673600044079F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F1F4E2A205673600044079F /* LaunchScreen.storyboard */; };
+		8F2DF083206A0A7A003C5834 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2DF082206A0A7A003C5834 /* Location.swift */; };
 		8F3F5AE720576AFD007DCA41 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3F5AE620576AFD007DCA41 /* Constants.swift */; };
 		8F3F5AE9205778FB007DCA41 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3F5AE8205778FB007DCA41 /* CurrentWeather.swift */; };
+		8F81CF15205F812300B9E6A2 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F81CF14205F812300B9E6A2 /* Forecast.swift */; };
+		8F81CF17205F8C2E00B9E6A2 /* WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F81CF16205F8C2E00B9E6A2 /* WeatherCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,8 +29,11 @@
 		8F1F4E28205673600044079F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8F1F4E2B205673600044079F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8F1F4E2D205673600044079F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8F2DF082206A0A7A003C5834 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		8F3F5AE620576AFD007DCA41 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8F3F5AE8205778FB007DCA41 /* CurrentWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
+		8F81CF14205F812300B9E6A2 /* Forecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
+		8F81CF16205F8C2E00B9E6A2 /* WeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCell.swift; sourceTree = "<group>"; };
 		AE412BBD1F7C9C70C6E9D4DB /* Pods-WeatherForecast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherForecast.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherForecast/Pods-WeatherForecast.debug.xcconfig"; sourceTree = "<group>"; };
 		DB238BE02302150A7653136A /* Pods-WeatherForecast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherForecast.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherForecast/Pods-WeatherForecast.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,6 +96,9 @@
 				8F1F4E2D205673600044079F /* Info.plist */,
 				8F3F5AE620576AFD007DCA41 /* Constants.swift */,
 				8F3F5AE8205778FB007DCA41 /* CurrentWeather.swift */,
+				8F81CF14205F812300B9E6A2 /* Forecast.swift */,
+				8F81CF16205F8C2E00B9E6A2 /* WeatherCell.swift */,
+				8F2DF082206A0A7A003C5834 /* Location.swift */,
 			);
 			path = WeatherForecast;
 			sourceTree = "<group>";
@@ -225,8 +234,11 @@
 			files = (
 				8F1F4E24205673600044079F /* WeatherVC.swift in Sources */,
 				8F1F4E22205673600044079F /* AppDelegate.swift in Sources */,
+				8F81CF17205F8C2E00B9E6A2 /* WeatherCell.swift in Sources */,
 				8F3F5AE9205778FB007DCA41 /* CurrentWeather.swift in Sources */,
 				8F3F5AE720576AFD007DCA41 /* Constants.swift in Sources */,
+				8F81CF15205F812300B9E6A2 /* Forecast.swift in Sources */,
+				8F2DF083206A0A7A003C5834 /* Location.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

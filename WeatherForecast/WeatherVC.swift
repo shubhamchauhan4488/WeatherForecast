@@ -7,10 +7,15 @@
 //
 
 import UIKit
+import Alamofire
+import CoreLocation
 
-var currentWeather : CurrentWeather!
 
-class WeatherVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class WeatherVC: UIViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate{
+    
+    var currentWeather : CurrentWeather!
+    var forecast : Forecast!
+    var forecasts = [Forecast]()
 
     @IBOutlet weak var dateLabel: UILabel!
     
@@ -24,16 +29,69 @@ class WeatherVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
+    let locationManager = CLLocationManager()
+    var currentLocation : CLLocation!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         print( CURRENT_WEATHER_URL )
         tableView.dataSource = self
         tableView.delegate = self
+        
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
         currentWeather =  CurrentWeather()
-        currentWeather.downloadWeatherDetails {
-            self.updateMainUI()
+        
+    }
+    
+    func locationAuthStatus(){
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse{
+            currentLocation = locationManager.location
+            print(locationManager.location)
+            Location.sharedInstance.latitude = currentLocation.coordinate.latitude
+            Location.sharedInstance.longitude = currentLocation.coordinate.longitude
+            print(currentLocation.coordinate.latitude)
+            print(Location.sharedInstance.latitude)
+    
+            currentWeather.downloadWeatherDetails{
+                self.downloadForecastData {
+                    self.updateMainUI()
+                }
+            }
+           
+        }else{
+            locationManager.requestWhenInUseAuthorization()
+            locationAuthStatus()
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        locationAuthStatus()
+    }
+    
+    func downloadForecastData(completed : @escaping onDownloadComplete){
+//        let forecastURL = URL(string: FORECAST_URL)!
+        Alamofire.request(FORECAST_URL).responseJSON { (response) in
+            print(response)
+            
+            if let dict = response.value as? Dictionary<String, AnyObject>{
+                
+                if let list = dict["list"] as? [Dictionary<String, AnyObject>]{
+                    
+                    for obj in list {
+                        let forecast = Forecast(weatherDict : obj)
+                        self.forecasts.append(forecast)
+                        print(obj)
+                    }
+                    self.tableView.reloadData()
+                }
+            }
+            completed()
+        }
+        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -41,22 +99,30 @@ class WeatherVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return forecasts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "weatherCell", for: indexPath)
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "weatherCell", for: indexPath) as? WeatherCell{
+            cell.configureCell(forecast: forecasts[indexPath.row])
+            return cell
         
-        return cell;
+        }
+        return WeatherCell();
     }
 
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
     
     func updateMainUI(){
-        self.dateLabel.text = currentWeather.date
-        self.locationLabel.text = currentWeather.cityName
-        self.temptLabel.text = "\(currentWeather.currentTemp)"
-        self.weatherType.text = currentWeather.weatherType
-        self.weatherImage.image = UIImage(named : currentWeather.weatherType )
+        print("Entered the update manin ui Method")
+        print(currentWeather.cityName)
+        dateLabel.text = currentWeather.date
+        locationLabel.text = currentWeather.cityName
+        temptLabel.text = String(format: "%.1f", currentWeather.currentTemp)
+        weatherType.text = currentWeather.weatherType
+        weatherImage.image = UIImage(named : currentWeather.weatherType )
         
     }
 
