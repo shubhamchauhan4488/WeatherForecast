@@ -42,6 +42,7 @@ class WeatherVC: UIViewController, UITableViewDataSource, UITableViewDelegate, C
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
+        locationManager.startMonitoringSignificantLocationChanges()
         currentWeather =  CurrentWeather()
         
     }
