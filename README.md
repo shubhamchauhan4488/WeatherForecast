@@ -2,11 +2,11 @@
 <p>This single-view application uses :</p>
  <ul>
   <li>Alamofire pod library to parse Json obtained from openweathermap API</li>
-  <li>Auto Layout</p>
-  <li>Components designed in Sketch</p>
-  <li>CLLocation Manager to fetch the present coordinates</p>
-  </ul>
+  <li>Auto Layout</li>
+  <li>Components designed in Sketch</li>
+  <li>CLLocation Manager to fetch the present coordinates</li>
+ </ul>
 <p>Main Weather Forecast Screen</p>
-<img src="screenshot/MainScreen.png" />
-<p>Main Weather Forecast Screen</p>
-<img src="screenshot/DeviceComparison.png" />
+<img src="Screenshot/MainScreen.png" />
+<p>Device Comparison and Location request Authorisation Screen</p>
+<img src="Screenshot/DeviceComparison.png" />
