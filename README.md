@@ -9,4 +9,4 @@
 <p>Main Weather Forecast Screen</p>
 <img src="screenshot/MainScreen.png" />
 <p>Main Weather Forecast Screen</p>
-<img src="screenshot/MainScreen.png" />
+<img src="screenshot/DeviceComparison.png" />
