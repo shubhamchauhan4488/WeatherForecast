@@ -7,6 +7,6 @@
   <li>CLLocation Manager to fetch the present coordinates</li>
  </ul>
 <p>Main Weather Forecast Screen</p>
-<img src="Screenshot/MainScreen.png" />
+<img src="Screenshot/MainScreen.png" width = "300" height = "614"/>
 <p>Device Comparison and Location request Authorisation Screen</p>
-<img src="Screenshot/DeviceComparison.png" />
+<img src="Screenshot/DeviceComparison.png" width = "300" height = "614" />
