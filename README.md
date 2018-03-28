@@ -9,4 +9,4 @@
 <p>Main Weather Forecast Screen</p>
 <img src="Screenshot/MainScreen.png" width = "300" height = "614"/>
 <p>Device Comparison and Location request Authorisation Screen</p>
-<img src="Screenshot/DeviceComparison.png" width = "300" height = "614" />
+<img src="Screenshot/DeviceComparison.png" width = "600" height = "614" />
