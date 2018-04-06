@@ -95,7 +95,6 @@ class WeatherVC: UIViewController, UITableViewDataSource, UITableViewDelegate, C
             }
             completed()
         }
-        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
